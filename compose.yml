@@ -1,0 +1,11 @@
+services:
+  deno:
+    build: ./server
+  front:
+    build: ./front
+    ports:
+      - "80:80"
+    depends_on:
+      - deno
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
