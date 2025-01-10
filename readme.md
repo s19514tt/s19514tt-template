@@ -1,36 +1,19 @@
-# jnok-bingo
+# s19514tt-template
 
-中澤大越研究室の研究室内ビンゴ大会用のビンゴゲームです。
+自分で使う用の(自称)最強のフロントエンド+バックエンドのテンプレートです。
 
-## 環境構築
+## 使い方
 
-### フロントエンド
+### VSCode用の設定をコピー
 
-#### 要件
+``
+mv ./..vscode/ ./.vscode/
+``
 
-- Node.js
+### 必要に応じてMongoDBをDockerで起動
 
-#### インストール
-
-```bash
-cd front
-npm install
-```
-
-#### 起動
+compose.ymlのMongo部分のコメントアウトを外して、以下のコマンドを実行
 
 ```bash
-npm run dev
-```
-
-### バックエンド
-
-#### 要件
-
-- Deno
-
-#### 起動
-
-```bash 
-deno run --allow-net --allow-read --allow-env server/main.ts
+docker-compose up -d mongo
 ```
