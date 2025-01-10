@@ -6,9 +6,9 @@
 
 ### VSCode用の設定をコピー
 
-``
+```bash
 mv ./..vscode/ ./.vscode/
-``
+```
 
 ### 必要に応じてMongoDBをDockerで起動
 
