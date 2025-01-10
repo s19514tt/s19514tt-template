@@ -4,15 +4,21 @@
   </div>
 </template>
 <script setup lang="ts">
+import type { ClientToServerEvents, ServerToClientEvents } from '@/shared-types/ws';
 import axios from 'axios';
-import { io } from 'socket.io-client';
+import { io, Socket } from 'socket.io-client';
 import { onMounted } from 'vue';
 
 onMounted(async () => {
   console.log((await axios.get('/api')).data);
 });
 
-io().on('connect', () => {
+const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io().on('connect', () => {
+  console.log('connected');
+});
+
+socket.on("messageToClient", (data) => {
+  console.log(data);
 });
 </script>
 <style></style>

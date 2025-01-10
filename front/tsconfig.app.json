@@ -9,6 +9,7 @@
       "@/*": ["./src/*"]
     },
     "composite": true,
-    "noEmit": true
+    "emitDeclarationOnly": true,
+    "noEmit": false
   }
 }

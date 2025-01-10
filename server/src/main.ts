@@ -1,5 +1,7 @@
 import { Hono } from "jsr:@hono/hono";
 import "./ws.ts";
+// import { config } from "https://deno.land/x/dotenv@v3.2.2/mod.ts";
+// const env = config();
 
 const app = new Hono();
 
@@ -19,3 +21,7 @@ Deno.serve(
   },
   app.fetch
 );
+
+// import { MongoClient } from "jsr:@db/mongo";
+// const client = new MongoClient();
+// await client.connect(`mongodb://root:${PASSWORD}@localhost:27017`);
