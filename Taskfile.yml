@@ -7,15 +7,21 @@ tasks:
     dir: front
   server:
     cmds:
-      - denon run -A ./src/main.ts
+      - npm run dev
     dir: server
   default:
     deps:
       - front
       - server
-  install:
+  install-front:
     cmds:
       - npm install
     dir: front
+  install-server:
+    cmds:
       - npm install
     dir: server
+  install:
+    deps:
+      - install-front
+      - install-server
