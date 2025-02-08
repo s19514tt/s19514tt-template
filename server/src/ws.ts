@@ -1,8 +1,5 @@
-import { Server } from "npm:socket.io";
-import {
-  ClientToServerEvents,
-  ServerToClientEvents,
-} from "./shared-types/ws.ts";
+import { Server } from "socket.io";
+import { ClientToServerEvents, ServerToClientEvents } from "./shared-types/ws";
 
 const io = new Server<ServerToClientEvents, ClientToServerEvents>(8001);
 

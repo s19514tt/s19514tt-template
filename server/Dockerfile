@@ -1,18 +1,23 @@
-# Use the official Deno image as the base image
-FROM denoland/deno:alpine-2.1.5
+# Use the official Node.js image as the base image
+FROM node:20-alpine
 
 # Set the working directory
 WORKDIR /app
 
-# Copy the Deno application code to the container
+# Copy package.json and package-lock.json before running npm install (for caching purposes)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the application source code
 COPY . .
 
-# Cache the dependencies
-RUN deno cache main.ts
+# Build TypeScript files
+RUN npm run build
 
-# Set the command to run the Deno application
-CMD ["deno", "run", "-A", "./src/main.ts"]
+# Set the command to run the application
+CMD ["node", "./dist/main.js"]
 
-# Expose the port the application runs on
+# Expose the ports the application uses
 EXPOSE 8000
-EXPOSE 8001

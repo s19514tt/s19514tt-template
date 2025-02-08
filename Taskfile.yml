@@ -13,3 +13,9 @@ tasks:
     deps:
       - front
       - server
+  install:
+    cmds:
+      - npm install
+    dir: front
+      - npm install
+    dir: server

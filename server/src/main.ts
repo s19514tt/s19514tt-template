@@ -1,7 +1,5 @@
-import { Hono } from "jsr:@hono/hono";
-import "./ws.ts";
-// import { config } from "https://deno.land/x/dotenv@v3.2.2/mod.ts";
-// const env = config();
+import { Hono } from "hono";
+import { serve } from "@hono/node-server";
 
 const app = new Hono();
 
@@ -15,13 +13,7 @@ app.get("/api/users", (c) => {
   return c.json(users);
 });
 
-Deno.serve(
-  {
-    port: 8000,
-  },
-  app.fetch
-);
-
-// import { MongoClient } from "jsr:@db/mongo";
-// const client = new MongoClient();
-// await client.connect(`mongodb://root:${PASSWORD}@localhost:27017`);
+serve({
+  fetch: app.fetch,
+  port: 8000,
+});

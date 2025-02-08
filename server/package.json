@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "tomu_1576 <s19514tt@sfc.keio.ac.jp> (https://github.com/s19514tt)",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@hono/node-server": "^1.13.8",
+    "hono": "^4.7.0",
+    "socket.io": "^4.8.1"
+  }
+}
